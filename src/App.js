@@ -1,25 +1,34 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import SearchBar from './components/SearchBar';
+import MovieList from './components/MovieList';
+import MovieDetail from './components/MovieDetail';
+import { searchMovies } from './api/tmdb';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [movies, setMovies] = useState([]);
+  const [selectedMovie, setSelectedMovie] = useState(null);
+
+  const handleSearch = async (query) => {
+    const response = await searchMovies(query);
+    setMovies(response.data.results);
+    setSelectedMovie(null);
+  };
+
+  const handleMovieSelect = (movie) => {
+    setSelectedMovie(movie);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-container">
+      <div className="app-content">
+        <h1>Movie Search App</h1>
+        <SearchBar onSearch={handleSearch} />
+        <MovieList movies={movies} onMovieSelect={handleMovieSelect} />
+        <MovieDetail movie={selectedMovie} />
+      </div>
     </div>
   );
-}
+};
 
 export default App;

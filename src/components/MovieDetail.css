@@ -1,0 +1,55 @@
+.movie-detail {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .movie-detail img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .movie-detail h2 {
+    margin-top: 20px;
+    font-size: 28px;
+    color: #343a40;
+  }
+  
+  .movie-detail p {
+    font-size: 16px;
+    color: #6c757d;
+  }
+/* Existing styles above */
+
+@media (max-width: 768px) {
+    .movie-detail {
+      padding: 15px;
+    }
+  
+    .movie-detail h2 {
+      font-size: 24px;
+    }
+  
+    .movie-detail p {
+      font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .movie-detail {
+      padding: 10px;
+    }
+  
+    .movie-detail h2 {
+      font-size: 20px;
+    }
+  
+    .movie-detail p {
+      font-size: 12px;
+    }
+  }
+    
